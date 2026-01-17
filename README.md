@@ -31,6 +31,10 @@
 数据处理流水线：
 <img width="784" height="151" alt="image" src="https://github.com/user-attachments/assets/ec5a86c1-ad89-4c54-8c00-3e4607f61f0d" />
 
+
+<img width="783" height="439" alt="image" src="https://github.com/user-attachments/assets/be4d2ef5-9dbf-418e-a21a-7c7861477eae" />
+
+<img width="784" height="434" alt="image" src="https://github.com/user-attachments/assets/6938864e-83c5-4d23-81d4-7e311f5eb0a6" />
 3. 核心功能/算法实现
 3.1 9类交通目标识别系统
 交通场景中目标类别多样，传统方法难以同时准确识别车辆、行人、非机动车等多种类型目标，且不同类型车辆（轿车、公交车、卡车等）特征相似，容易误判。本系统基于YOLOv8构建9类交通目标识别系统，通过改进的特征提取网络和类别损失函数优化，实现对细粒度车辆类型的准确区分。
@@ -301,8 +305,6 @@ def create_statistics_image(statistics, title="交通目标检测统计报告", 
 雪天：75.1%平均准确率
 
 <img width="783" height="439" alt="image" src="https://github.com/user-attachments/assets/be4d2ef5-9dbf-418e-a21a-7c7861477eae" />
-
-<img width="784" height="151" alt="image" src="https://github.com/user-attachments/assets/ec5a86c1-ad89-4c54-8c00-3e4607f61f0d" />
 
 <img width="784" height="434" alt="image" src="https://github.com/user-attachments/assets/6938864e-83c5-4d23-81d4-7e311f5eb0a6" />
 5.3 统计报告输出
