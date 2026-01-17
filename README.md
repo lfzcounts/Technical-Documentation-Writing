@@ -1,4 +1,3 @@
-<img width="784" height="227" alt="image" src="https://github.com/user-attachments/assets/a8f51824-d233-436c-a24a-d4b90f98103d" /># Technical-Documentation-Writing
 基于YOLOv8的智能交通监控系统技术文档
 作者：赖福忠（22高本人工智能2班） | 毕业设计项目 | 日期：2025-4-10
 
@@ -28,11 +27,10 @@
 数据集：自建交通数据集（9类目标，包含多种天气条件）
 
 2.2 系统架构图
-
+<img width="784" height="227" alt="image" src="https://github.com/user-attachments/assets/a8f51824-d233-436c-a24a-d4b90f98103d" /># Technical-Documentation-Writing
 数据处理流水线：
+<img width="784" height="151" alt="image" src="https://github.com/user-attachments/assets/ec5a86c1-ad89-4c54-8c00-3e4607f61f0d" />
 
-text
-原始视频 → 逐帧读取 → YOLOv8检测 → ByteTrack跟踪 → 类别识别 → 去重计数 → 实时统计 → 可视化叠加 → 结果输出
 3. 核心功能/算法实现
 3.1 9类交通目标识别系统
 交通场景中目标类别多样，传统方法难以同时准确识别车辆、行人、非机动车等多种类型目标，且不同类型车辆（轿车、公交车、卡车等）特征相似，容易误判。本系统基于YOLOv8构建9类交通目标识别系统，通过改进的特征提取网络和类别损失函数优化，实现对细粒度车辆类型的准确区分。
