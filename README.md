@@ -268,6 +268,8 @@ def create_statistics_image(statistics, title="交通目标检测统计报告", 
 系统运行界面直观展示了实时检测和统计结果。界面左上角显示当前检测到的各类目标数量，按数量降序排列。检测框使用不同颜色区分主要类别，每个检测框标注目标ID和类别名称。底部提供控制提示，支持快捷键操作。视频处理样例图片如下：
 <img width="783" height="439" alt="image" src="https://github.com/user-attachments/assets/be4d2ef5-9dbf-418e-a21a-7c7861477eae" />
 
+<img width="784" height="151" alt="image" src="https://github.com/user-attachments/assets/ec5a86c1-ad89-4c54-8c00-3e4607f61f0d" />
+
 <img width="784" height="434" alt="image" src="https://github.com/user-attachments/assets/6938864e-83c5-4d23-81d4-7e311f5eb0a6" />
 
 
