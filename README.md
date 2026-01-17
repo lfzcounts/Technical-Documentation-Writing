@@ -252,7 +252,6 @@ def create_statistics_image(statistics, title="交通目标检测统计报告", 
 遮挡后重新出现被识别为新目标，导致重复计数
 
 密集车流中目标粘连，难以准确分离计数
-<img width="437" height="166" alt="image" src="https://github.com/user-attachments/assets/3c98a223-8fe3-4a69-a095-2d7770878d7a" />
 
 解决方案：
 
@@ -266,7 +265,10 @@ def create_statistics_image(statistics, title="交通目标检测统计报告", 
 
 5. 效果展示
 5.1 系统运行界面
-系统运行界面直观展示了实时检测和统计结果。界面左上角显示当前检测到的各类目标数量，按数量降序排列。检测框使用不同颜色区分主要类别，每个检测框标注目标ID和类别名称。底部提供控制提示，支持快捷键操作。
+系统运行界面直观展示了实时检测和统计结果。界面左上角显示当前检测到的各类目标数量，按数量降序排列。检测框使用不同颜色区分主要类别，每个检测框标注目标ID和类别名称。底部提供控制提示，支持快捷键操作。视频处理样例图片如下：
+<img width="1558" height="858" alt="image" src="https://github.com/user-attachments/assets/fe6cc66f-8b3b-4d67-bfa8-de8473f1ebbc" />
+![Uploading image.png…]()
+
 
 5.2 9类目标识别效果
 在正常天气条件下，系统对9类交通目标的识别准确率表现良好：
