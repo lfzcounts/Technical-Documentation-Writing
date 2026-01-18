@@ -32,9 +32,6 @@
 <img width="784" height="151" alt="image" src="https://github.com/user-attachments/assets/ec5a86c1-ad89-4c54-8c00-3e4607f61f0d" />
 
 
-<img width="783" height="439" alt="image" src="https://github.com/user-attachments/assets/be4d2ef5-9dbf-418e-a21a-7c7861477eae" />
-
-<img width="784" height="434" alt="image" src="https://github.com/user-attachments/assets/6938864e-83c5-4d23-81d4-7e311f5eb0a6" />
 3. 核心功能/算法实现
 3.1 9类交通目标识别系统
 交通场景中目标类别多样，传统方法难以同时准确识别车辆、行人、非机动车等多种类型目标，且不同类型车辆（轿车、公交车、卡车等）特征相似，容易误判。本系统基于YOLOv8构建9类交通目标识别系统，通过改进的特征提取网络和类别损失函数优化，实现对细粒度车辆类型的准确区分。
@@ -42,7 +39,7 @@
 3.1.1 类别定义与映射
 系统识别9类交通目标，这些类别覆盖了城市交通场景中的主要参与者：
 ```
-```python
+python
 LABEL_MAP = {
     0: "car",          # 小汽车
     1: "person",       # 行人
@@ -53,13 +50,15 @@ LABEL_MAP = {
     6: "tricycle",     # 三轮车
     7: "motorCoach",   # 大客车
     8: "mixerTruck"    # 搅拌车
-}```
+}
+```
 这9个类别经过精心设计，既包含了常见的交通参与者（小汽车、行人），也涵盖了特殊车辆类型（搅拌车、大客车），能够满足大多数城市交通监控的需求。
 
 3.1.2 目标检测与类别识别实现
 系统的检测流程采用YOLOv8框架，结合ByteTrack多目标跟踪算法，实现准确的类别识别：
 
-```python
+```
+python
 def detect_and_classify(frame, model, conf_threshold=0.4):
     results = model.track(frame, persist=True, tracker='bytetrack.yaml', conf=conf_threshold)
     
@@ -87,7 +86,8 @@ def detect_and_classify(frame, model, conf_threshold=0.4):
                 detections.append(detection)
                 class_counts[class_name] += 1
     
-    return detections, class_counts```
+    return detections, class_counts
+```
 该函数对输入的视频帧进行处理，返回检测结果和各类别的初步计数。关键点在于：
 
 使用YOLOv8模型进行目标检测
@@ -113,7 +113,8 @@ def detect_and_classify(frame, model, conf_threshold=0.4):
 3.2.1 去重统计核心实现
 系统的去重统计核心是一个专门设计的TrafficCounter类，它管理所有目标的跟踪ID，并确保每个目标只被统计一次：
 
-```python
+```
+python
 class TrafficCounter:
     def __init__(self):
         self.unique_counts = defaultdict(set)
@@ -147,14 +148,16 @@ class TrafficCounter:
                 self.unique_counts[class_name].add(track_id)
                 self.current_frame_counted.add(track_id)
             
-            self.cache_valid = False```
+            self.cache_valid = False
+```
 去重统计的关键机制包括：基于ID的集合存储：使用Python集合存储每个类别的跟踪ID，自动去重.轨迹历史管理：记录每个目标的运动轨迹，支持后续分析
 首次出现记录：记录每个目标首次出现的帧号，支持时间窗口分析。缓存机制：避免重复计算，提升性能
 
 3.2.2 高质量统计报告生成
 系统能够生成高质量的统计报告图片，适合用于论文、报告等正式场合：
 
-```python
+```
+python
 def create_statistics_image(statistics, title="交通目标检测统计报告", dpi=300):
     stats = statistics.get_statistics()
     
@@ -226,7 +229,8 @@ def create_statistics_image(statistics, title="交通目标检测统计报告", 
     output_path = f"traffic_statistics_{timestamp}.png"
     img.save(output_path, 'PNG', dpi=(dpi, dpi))
     
-    return img, output_path```
+    return img, output_path
+```
 生成的统计报告图片具有高分辨率（支持600DPI输出）和美观清晰（交替行背景色，关键数据突出显示）的特点，并且信息完整：包含标题、时间戳、详细统计数据和汇总信息
 
 4. 遇到挑战与解决方案
@@ -271,7 +275,9 @@ def create_statistics_image(statistics, title="交通目标检测统计报告", 
 5. 效果展示
 5.1 系统运行界面
 系统运行界面直观展示了实时检测和统计结果。界面左上角显示当前检测到的各类目标数量，按数量降序排列。检测框使用不同颜色区分主要类别，每个检测框标注目标ID和类别名称。底部提供控制提示，支持快捷键操作。视频处理样例图片如下：
+<img width="783" height="439" alt="image" src="https://github.com/user-attachments/assets/be4d2ef5-9dbf-418e-a21a-7c7861477eae" />
 
+<img width="784" height="434" alt="image" src="https://github.com/user-attachments/assets/6938864e-83c5-4d23-81d4-7e311f5eb0a6" />
 
 5.2 9类目标识别效果
 在正常天气条件下，系统对9类交通目标的识别准确率表现良好：
@@ -304,9 +310,6 @@ def create_statistics_image(statistics, title="交通目标检测统计报告", 
 
 雪天：75.1%平均准确率
 
-<img width="783" height="439" alt="image" src="https://github.com/user-attachments/assets/be4d2ef5-9dbf-418e-a21a-7c7861477eae" />
-
-<img width="784" height="434" alt="image" src="https://github.com/user-attachments/assets/6938864e-83c5-4d23-81d4-7e311f5eb0a6" />
 5.3 统计报告输出
 系统生成的统计报告图片具有专业外观，包含完整统计信息：
 
